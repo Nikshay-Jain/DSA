@@ -6,7 +6,7 @@ void missing(int a[], int n)
     int i, no = 0;
     for(i=0;i<n;i++)
     {
-        no = no^(i+1)^(a[i]);         //n = (1^2^3^...^n)^(a[0]^a[1]^...^a[n-1])
+        no = no^(i+1)^(a[i]);         //n = (1^2^3^...^n^n+1)^(a[0]^a[1]^...^a[n-1])
     }
     no = no^(n+1);
     cout<<no<<" is missing";
