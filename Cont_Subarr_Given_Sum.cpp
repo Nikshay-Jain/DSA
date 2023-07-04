@@ -18,7 +18,8 @@ int main()
         j++;
     }
     if(sum==s)
-        cout<<i+1<<" "<<j<<endl;
+        cout<<i<<" "<<j<<endl;
+    
     while(j<n)
     {
         sum+=a[j];
@@ -35,5 +36,5 @@ int main()
         }
         j++;
     }
-    cout<<st<<" "<<ed<<endl;
+    cout<<st-1<<" "<<ed-1<<endl;
 }
