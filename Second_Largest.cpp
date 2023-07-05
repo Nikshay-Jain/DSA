@@ -11,6 +11,7 @@ int main()
     for(i=0;i<n;i++)
         cin>>a[i];
     int l = INT_MIN, sl = INT_MIN;
+    
     for(i=0;i<n;i++)
     {
         if(a[i]>l)
