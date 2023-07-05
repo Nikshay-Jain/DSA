@@ -55,7 +55,7 @@ int Circular(int n,int a[])
         totsum+=a[i];
         a[i] = -a[i];
     }
-                                //finding normal min sum subarray by kadane by finding max subarray sum among negated elements
+    //subt min sum part from the total sum by finding normal min sum subarray by kadane by finding max subarray sum among negated elements
     cirsum = totsum + (Kadane_Algo(n,a));
     return max(cirsum,normalsum);
 }
