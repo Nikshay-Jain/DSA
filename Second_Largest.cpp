@@ -20,9 +20,7 @@ int main()
             l=a[i];
         }
         else if(a[i]<l && a[i]>sl)
-        {
             sl=a[i];
-        }
     }
     cout<<"2nd largest element: "<<((sl!=INT_MIN)?sl:-1);
 }
