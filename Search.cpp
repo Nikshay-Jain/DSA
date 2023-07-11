@@ -89,7 +89,7 @@ int main()
     cout<<"Enter no of elements"<<endl;
     int i,n,x;
     cin>>n;
-    cout<<"Enter array"<<endl;
+    cout<<"Enter sorted array"<<endl;
     int a[n];
     for (i=0;i<n;i++)
         cin>>a[i];
