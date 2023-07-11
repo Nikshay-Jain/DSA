@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int i,j,t,c;
 
 void Selection(int n[],int l)
