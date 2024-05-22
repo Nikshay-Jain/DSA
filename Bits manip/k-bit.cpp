@@ -13,7 +13,7 @@ void useAND(int n, int k)
 void useLeft(int n, int k)
 {
     int t = pow(2,k-1);
-    if((n&(1<<(k-1)))!=0)
+    if((n & (1<<(k-1)))!=0)
         cout<<"Yes, kth bit is set"<<endl;
     else
         cout<<"No, kth is not set"<<endl;
@@ -22,7 +22,7 @@ void useLeft(int n, int k)
 void useRight(int n, int k)
 {
     int t = pow(2,k-1);
-    if(((n>>(k-1))&1)==1)
+    if(((n>>(k-1)) & 1)==1)
         cout<<"Yes, kth bit is set"<<endl;
     else
         cout<<"No, kth is not set"<<endl;
