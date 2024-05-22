@@ -5,7 +5,7 @@ int i;
 
 void odd1(int a[], int n)
 {                               //Properties of XOR
-    int res = 0;             //x^0 = x
+    int res = 0;                //x^0 = x
     for(i=0;i<n;i++)            //x^y = y^x
         res = res^a[i];         //x^x = 0
     cout<<(res)<<" is the one no that appears odd no of times in the array";
