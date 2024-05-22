@@ -20,7 +20,7 @@ void brian_kerningam(int n)
     int c=0;
     while(n>0)
     {
-        n = n&(n-1);
+        n = n & (n-1);      //turns off the last set bit in each iteration till no becomes =0
         c++;
     }
     cout<<"The no has "<<c<<" bits set by brian kerningam algo"<<endl;
