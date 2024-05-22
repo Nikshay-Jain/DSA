@@ -2,8 +2,9 @@
 using namespace std;
 
 int i;
+// check for nos in thee APs with a=5,7 and d=6 as thats left after removing multiples of 2 and 3
 
-// O(n)=n/6
+// O(n)=sqrt(n)/6
 bool prime(int n)
 {
     if(n==2 || n==3)
@@ -14,7 +15,7 @@ bool prime(int n)
     {
         for(i=5;i*i<=n;i+=6)
         {
-            if(n%i==0 || n%(i+2)==0)
+            if(n%i==0 || n%(i+2)==0)        //checking if a no is divisible by nos in 2 APs
                 return false;
         }
     }
@@ -51,7 +52,7 @@ void prime_factors(int n)
         cout<<n;
 }
 
-//O(n)=2*n^0.5
+//O(n)=2*sqrt(n)
 void factors(int n)
 {
     for(i=1;i*i<=n;i++)
@@ -61,12 +62,13 @@ void factors(int n)
     }
     for(;i>=1;i--)
     {
-        if(n%i==0)
+        if(n%i==0 && (n/i)!=i)
             cout<<(n/i)<<" ";
     }
 }
 
-//Sieve of Eratosthenes algo
+//Sieve of Eratosthenes algo: all primes <= n
+//O(n) = n*log(log(n))
 void allPrime(int n)
 {
     vector <bool> isPrime(n+1,true);
@@ -91,6 +93,6 @@ int main()
     prime_factors(n);
     cout<<endl<<endl<<"All factors:"<<endl;
     factors(n);
-    cout<<endl<<"Primes before entered no"<<endl;
+    cout<<endl<<"\nPrimes before entered no"<<endl;
     allPrime(n);
 }
