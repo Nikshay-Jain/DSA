@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Time complexity = O(log n) and Space Complexity = O(n)
+//Time complexity = O(log n) and Space Complexity = o(log(n)) for function calls
 int power(int a, int n)
 {
     if(n==0)
