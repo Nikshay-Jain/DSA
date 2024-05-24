@@ -3,7 +3,7 @@ using namespace std;
 
 int vir(int n)
 {
-    if(n<=1)
+    if(n<=1)        // handles 2 base cases together
         return n;
     return (vir(n-2) + vir(n-1));
 }
