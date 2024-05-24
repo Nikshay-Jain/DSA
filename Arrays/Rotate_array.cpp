@@ -15,9 +15,8 @@ void leftrot(int a[], int n, int d)
         a[i-d] = a[i];
     }
     for(i=0;i<d;i++)
-    {
         a[n-d+i] = b[i];
-    }
+
     for(i=0;i<n;i++)
         cout<<a[i]<<" ";
 }
@@ -33,7 +32,6 @@ void rev(int a[], int low, int high)
     }
 }
 
-// Time: O(n), extra space: O(b)
 void leftrot_rev(int a[], int n, int d)
 {
     rev(a, 0, d-1);
