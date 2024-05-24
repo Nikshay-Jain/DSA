@@ -3,7 +3,7 @@ using namespace std;
 
 int fact(int n, int k)      //Using Tail recursion to speed up the proces
 {
-    if(n==1)
+    if(n==0)
         return k;
     return fact(n-1,k*n);
 }
