@@ -12,6 +12,8 @@ void missing(int a[], int n)
     cout<<no<<" is missing";
 }
 
+// best soln to use sum of n consec int = n*(n+1)/2 and the subt array sum from this.
+ 
 int main()
 {
     int i,n,a[n];
