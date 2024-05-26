@@ -3,6 +3,8 @@ using namespace std;
 
 int i,j,n,sum=0;
 
+// Max Sum
+
 //O(n) = n
 int Kadane_Algo(int n,int a[])
 {
@@ -10,11 +12,11 @@ int Kadane_Algo(int n,int a[])
     for(i=0;i<n;i++)
     {
         sum+=a[i];    // Sum till that element should not be -ve as we're sure to start from next element (if +ve)
+        max_sum = max(max_sum,sum);
         if(sum<0)
             sum=0;
-        max_sum = max(max_sum,sum);
     }
-    return max_sum;  
+    return max_sum;
 }
 
 //O(n) = n
@@ -36,14 +38,31 @@ int Circular(int n,int a[])
     return max(cirsum,normalsum);
 }
 
+// Max Product subarray
+int maxProduct(int n, int nums[])
+{
+    int i;
+    if (n == 0)
+        return 0;
+    int max_prod = 1;
+    int min_prod = 1;
+    int result = nums[0];
+
+    for (i = 0; i < n; i++)
+    {
+        int temp_max = max({ nums[i], max_prod * nums[i], min_prod * nums[i] });
+        min_prod = min({ nums[i], max_prod * nums[i], min_prod * nums[i] });
+        max_prod = temp_max;
+        result = max(result, max_prod);
+    }
+    return result;
+}
+
 int main()
 {
-    cout<<"Enter size of array"<<endl;
-    cin>>n;
-    cout<<"Enter array"<<endl;
-    int a[n];
-    for(i=0;i<n;i++)
-    cin>>a[i];
+    int n=3;
+    int a[n] = {3,-2,-5};
     cout<<"Kadane's Algorithm: "<<Kadane_Algo(n,a)<<endl;                     //O(n) = n
-    cout<<"Circular Subarray: "<<Circular(n,a)<<endl;                         //O(n) = n
+    cout<<"Circular Subarray sum: "<<Circular(n,a)<<endl;                     //O(n) = n
+    cout<<"Max product of subarray: "<<maxProduct(n,a);
 }
