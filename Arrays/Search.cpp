@@ -69,7 +69,7 @@ int count_occurance(int n, int a[], int x)
 }
 
 // Works for array lengths in billions too, where bin search alone fails
-int inf(int a[], int x)
+int unbounded_bin_search(int a[], int x)
 {
     int i = 1;
     if(a[0]==x)
@@ -86,18 +86,12 @@ int inf(int a[], int x)
 
 int main()
 {
-    cout<<"Enter no of elements"<<endl;
-    int i,n,x;
-    cin>>n;
-    cout<<"Enter sorted array"<<endl;
-    int a[n];
-    for (i=0;i<n;i++)
-        cin>>a[i];
-    cout<<"Enter target no to be searched"<<endl;
-    cin>>x;
+    int n = 12;
+    int a[n] = {10,10,15,20,20,20,30,40,40,45,50,60};
+    int x = 40;
     cout<<"Index of Occurance: "<<bin(n,a,x)<<endl;
     cout<<"Index of 1st Occurance: "<<first_occurance(n,a,x)<<endl;
     cout<<"Index of last Occurance: "<<last_occurance(n,a,x)<<endl;
     cout<<"Count of Occurances: "<<count_occurance(n,a,x)<<endl;
-    cout<<"Infinite array search method: "<<inf(a,x)<<endl;
+    cout<<"Infinite array search method: "<<unbounded_bin_search(a,x)<<endl;
 }
