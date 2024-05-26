@@ -16,15 +16,10 @@ int Peak(int a[], int n)
     }
     return -1;
 }
-
+ 
 int main()
 {
-    cout<<"Enter no of elements"<<endl;
-    int i,n,x;
-    cin>>n;
-    cout<<"Enter array"<<endl;
-    int a[n];
-    for (i=0;i<n;i++)
-        cin>>a[i];
-    cout<<"Peak at index: "<<Peak(a,n);
+    int n = 7;
+    int a[n] = {5,20,40,30,20,50,60}, b[5] = {-3,-4,-5,-1,-2};
+    cout<<"Peak at index: "<<Peak(b,5);
 }
