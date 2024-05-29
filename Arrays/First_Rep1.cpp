@@ -1,26 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+int rep(int n, int a[])
+{
+    int slow = a[0] + 1, fast = a[0] + 1;
+    do
+    {
+        slow = a[slow] + 1;
+        fast = a[a[fast] + 1] + 1;
+    } while (slow!=fast);
+
+    slow = a[0] + 1;
+    while(slow!=fast)
+    {
+        slow = a[slow] + 1;
+        fast = a[fast] + 1;
+    }
+    return slow-1;
+}
+
 int main()
 {
-    cout<<"Enter length of array"<<endl;
-    int n,i=0,j=0,t=0;
-    cin>>n;
-    int a[n];
-    cout<<"Enter elements:"<<endl;
-    for(i=0;i<n;i++)
-        cin>>a[i];
-    for(i=0;i<n;i++)
-    {
-        for(j=i+1;j<n;j++)
-        {
-            if(a[i]==a[j])
-            {
-                t=1;
-                cout<<"Element "<<a[i]<<" of position "<<i+1<<" is repeated"<<endl;
-                break;
-            }
-        }
-        if(t==1)
-            break;
-    }
+    int n = 9,i=0,j=0,t=0;              // if there was no 0 in the array, the function code need not have +1's everwhere
+    int a[n] = {1,0,3,2,4,6,5,7,3};
+    cout<<rep(n,a);
 }
