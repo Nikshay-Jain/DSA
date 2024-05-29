@@ -42,5 +42,4 @@ int main()
     int a[n] = {3,-2,-5};
     cout<<"Kadane's Algorithm: "<<Kadane_Algo(n,a)<<endl;                     //O(n) = n
     cout<<"Circular Subarray sum: "<<Circular(n,a)<<endl;                     //O(n) = n
-    cout<<"Max product of subarray: "<<max_pdt(n,a);
 }
