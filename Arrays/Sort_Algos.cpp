@@ -53,15 +53,15 @@ void Insertion(vector<int> n,int l)
     int t,c=0;
     for (i=1;i<l;i++)
     {
-        t=n[i];
-        j=i-1;
+        t = n[i];
+        j = i-1;
         while(n[j]>t && j>=0)
         {
-            n[j+1]=n[j];
+            n[j+1] = n[j];
             j--;
             c++;
         }
-        n[j+1]=t;
+        n[j+1] = t;
     }
     for(i=0;i<l;i++)
         cout<<n[i]<<" ";
