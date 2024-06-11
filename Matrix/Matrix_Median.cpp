@@ -35,14 +35,3 @@ int main()
                              {11,13,15,17,19}};
     med(m,n,a);
 }
-
-/*for(i=0;i<m;i++)
-    {
-        vector<int> v;
-        for(j=0;j<n;j++)
-        {
-            cin>>t;
-            v.push_back(t);
-        }
-        a.push_back(v);
-    }*/
