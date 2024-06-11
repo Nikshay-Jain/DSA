@@ -4,7 +4,7 @@ using namespace std;
 
 int i,j;
 
-void med(int r, int c, int **a)
+void med(int r, int c, vector<vector<int>> a)
 {
     int medpos = (r*c + 1)/2, mid, midpos;
     int minm = INT16_MAX, maxm = INT16_MIN;
@@ -20,7 +20,7 @@ void med(int r, int c, int **a)
         mid = (minm + maxm)/2;
         midpos = 0;
         for(i=0;i<r;i++)
-            midpos += upper_bound(a[i], a[i]+c, mid) - a[i];    //finding the pos of mid lies after which index by bin search in every row
+            midpos += upper_bound(a[i].begin(), a[i].end(), mid) - a[i];    //finding the pos of mid lies after which index by bin search in every row
         if(midpos<medpos)
             minm = mid+1;
         else
@@ -31,18 +31,10 @@ void med(int r, int c, int **a)
 
 int main()
 {
-    int m,n;
-    cout<<"Enter order of matrices"<<endl;
-    cin>>m>>n;
-    cout<<"Enter row-wise sorted matrix"<<endl;
-    int **a = new int*[m];
-
-    for (int i = 0; i < m; i++)
-    {
-        a[i] = new int[n];
-        for (int j = 0; j < n; j++)
-            cin >> a[i][j];
-    }
+    int m = 3,n = 3;
+    vector<vector<int>> a = {{1,2,3},
+                             {4,5,6},
+                             {7,8,9}};
     med(m,n,a);
 }
 
