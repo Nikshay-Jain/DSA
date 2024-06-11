@@ -3,22 +3,23 @@
 using namespace std;
 
 int i,j;
-void transpose(vector<vector<int>> &a)
+vector<vector<int>> transpose(vector<vector<int>> a)
 {
     for(i=0;i<a.size();i++)
     {
         for(j=i+1;j<a[i].size();j++)
             swap(a[i][j], a[j][i]);
     }
+    return a;
 }
 
-void rot90(vector<vector<int>> &a)      //rotates matrix 90 deg anti-clockwise ie reversal of rows of transposed matrix
+void rot90(vector<vector<int>> a)      //rotates matrix 90 deg anti-clockwise ie reversal of rows of transposed matrix
 {
-    transpose(a);
+    a = transpose(a);
     int n = a.size();
     int low,high;
 
-    for(i=0;i<n;i++)
+    for(i=0;i<n;i++)                    // reversing rows of the matrix
     {
         low = 0, high = n-1;
         while(low<=high)
@@ -39,22 +40,18 @@ void rot90(vector<vector<int>> &a)      //rotates matrix 90 deg anti-clockwise i
 
 int main()
 {
-    int m,n,t;
-    cout<<"Enter order of matrices"<<endl;
-    cin>>m>>n;
-    cout<<"Enter matrix"<<endl;
-    vector<vector<int>> a;
-
-    for(i=0;i<m;i++)
+    vector<vector<int>> a = {{1,2,3},
+                            {4,5,6},
+                            {7,8,9}};
+    
+    vector<vector<int>> b = transpose(a);
+    for(i=0;i<b.size();i++)
     {
-        vector<int> v;
-        for(j=0;j<n;j++)
-        {
-            cin>>t;
-            v.push_back(t);
-        }
-        a.push_back(v);
+        for(j=0;j<b[i].size();j++)
+            cout<<b[i][j]<<" ";
+        cout<<endl;
     }
     cout<<endl;
+    
     rot90(a);
 }
