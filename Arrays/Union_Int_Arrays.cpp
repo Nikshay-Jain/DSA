@@ -24,7 +24,7 @@ vector<int> array_intersection(vector<int> a, vector <int> b)
             k++;
         }
     }
-    intr.resize(k);
+    intr.resize(k); 
     return intr;
 }
 
