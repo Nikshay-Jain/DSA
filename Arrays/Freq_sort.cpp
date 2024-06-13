@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Look out more efficient soln in hashing folder
+
 struct pt
 {
     int x, y;
