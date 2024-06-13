@@ -1,11 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool pal(string &ch, int s, int e)
+bool pal(string &ch)
 {
-    if(s>=e)
-        return true;
-    return ((ch[s]==ch[e]) && pal(ch,s+1,e-1));
+    int s = 0, e = ch.length()-1;
+    while(s<e)
+    {
+        if(ch[s]!=ch[e])
+            return false;
+        s++;
+        e--;
+    }
+    return true;
 }
 
 int main()
@@ -13,7 +19,6 @@ int main()
     int s=0,e;
     cout<<"Enter string"<<endl;
     string str;
-    cin>>str;
-    e = str.length()-1;
-    cout<<pal(str,s,e);
+    getline(cin,str);
+    cout<<pal(str)<<endl;
 }
