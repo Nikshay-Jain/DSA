@@ -22,9 +22,50 @@ void pattern_search(string str, string pat)
         cout<<"Pattern not found";
 }
 
+void rabin_karp_algo(string txt, string pat)
+{
+    int M = pat.length(), N = txt.length();
+    int i, j, p = 0, t = 0, h = 1, d = 256, q = INT_MAX;     // keeping q large to avoid collisions
+
+    for (i=0;i<(M-1);i++)
+        h = (h*d)%q;
+
+    for (i = 0; i < M; i++)
+    {
+        p = (d*p+pat[i])%q;
+        t = (d*t+txt[i])%q;
+    }
+
+    for (i=0;i<=N-M;i++)
+    {
+        if (p==t)
+        {
+            // Check for characters one by one
+            for (j=0;j<M;j++)
+            {
+                if (txt[i+j]!=pat[j])
+                    break;
+            }
+            if (j == M)
+                cout<<"Pattern found at index "<<i<<endl;
+        }
+ 
+        // Calculate hash value for next window of text. Remove leading digit, add trailing digit
+        if(i < N-M)
+        {
+            t = (d*(t-txt[i]*h) + txt[i+M]) % q;
+            if (t<0)
+                t = (t + q);
+        }
+    }
+}
+
 int main()
 {
     string str = "geeksforgeeks, that too for geekekkeekks";
     string pat = "eek";
+    cout<<"My soln:"<<endl;
     pattern_search(str,pat);
+    cout<<"\nRabin carp:"<<endl;
+    rabin_karp_algo(str,pat);
 }
