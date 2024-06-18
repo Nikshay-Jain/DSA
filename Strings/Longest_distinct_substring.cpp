@@ -7,7 +7,7 @@ int dist_substr(string str)
         return 0;
     
     int res = 0, i, j = 0, n = str.size(), maxEnd;
-    vector<int> prev(256, -1);      // as no character is encountered yet so all -1
+    vector<int> prev(256, -1);                      // as no character is encountered yet so all -1
 
     for(i=0;i<n;i++)
     {
