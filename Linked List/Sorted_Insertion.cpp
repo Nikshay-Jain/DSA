@@ -11,7 +11,7 @@ struct Node {
 };
 
 void sorted_ins(Node *head, int x) {
-    Node *curr = head, *newNode = new Node(x);
+    Node *curr = head, *temp = new Node(x);
 
     if(head==NULL) {
         cout<<x<<endl;
@@ -19,16 +19,16 @@ void sorted_ins(Node *head, int x) {
     }
 
     else if(head->data > x) {
-        newNode->next = head;
-        cout<<newNode->data<<" ";
+        temp->next = head;
+        cout<<temp->data<<" ";
     }
 
     else {
         while(curr->next!=NULL && curr->next->data < x)
             curr = curr->next;
         
-        newNode->next = curr->next;
-        curr->next = newNode;
+        temp->next = curr->next;
+        curr->next = temp;
     }
     
     for(curr = head; curr!=NULL; curr = curr->next)
