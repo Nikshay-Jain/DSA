@@ -18,7 +18,6 @@ void clone_with_hashmap(Node *head) {
     Node *clone, *curr;
     for(curr = head; curr!=NULL; curr = curr->next)
         m[curr] = new Node(curr->data);
-        // m(curr);
     
     for(curr = head; curr!=NULL; curr = curr->next) {
         clone = m[curr];
@@ -26,7 +25,7 @@ void clone_with_hashmap(Node *head) {
         clone->random = curr->random;
     }
     Node *head2 = m[head];
-    cout<<head2->random->data<<endl;
+    cout<<"Random node from head: "<<head2->random->data<<endl;
 }
 
 // Time: O(n); Space: O(1)
@@ -46,9 +45,8 @@ void clone_dupl_nodes(Node *head) {
     // Step 2: Connect randoms
     curr1 = head;
     while (curr1 != NULL) {
-        if (curr1->next) {
+        if (curr1->next)
             curr1->next->random = (curr1->random != NULL) ? curr1->random->next : NULL;
-        }
         curr1 = curr1->next->next;
     }
         
@@ -65,8 +63,8 @@ void clone_dupl_nodes(Node *head) {
 
     // Step 4: Print the cloned list to verify
     curr2 = head2;
-    while (curr2 != NULL) {
-        cout << curr2->data << " ";
+    while(curr2 != NULL) {
+        cout<<curr2->data<<" ";
         curr2 = curr2->next;
     }
     cout << endl;
