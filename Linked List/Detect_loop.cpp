@@ -38,7 +38,7 @@ bool det_loop_hash(Node *head) {
 // No extra space, no breakage of LL, no modification of Node str
 bool det_loop_floyd_cycle(Node *head) {
     Node *slow = head, *fast = head;
-    while(fast!=NULL && fast->next !=NULL) {
+    while(fast->next!=NULL && fast->next->next !=NULL) {
         slow = slow->next;
         fast = fast->next->next;
         if(slow==fast)
