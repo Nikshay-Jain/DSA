@@ -18,7 +18,7 @@ int prev_next_small_method(vector<int> a) {
 
     // for next smaller array
     ns.push_back(n);
-    stack<int>().swap(s);   // erase all data in s for reuse
+    stack<int>().swap(s);    // erase all data in s for reuse
     s.push(n-1);
 
     for(i=n-2;i>=0;i--) {
