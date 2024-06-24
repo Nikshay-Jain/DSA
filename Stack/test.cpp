@@ -1,2 +1,6 @@
 #include<bits/stdc++.h>
-cout<<"Hi";
+using namespace std;
+
+int main(){
+    cout<<"Hi";
+}
