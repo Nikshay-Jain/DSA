@@ -18,6 +18,6 @@ void span(vector<int> a) {
 }
 
 int main() {
-    vector<int> a = {30,20,25,28,27,29};
+    vector<int> a = {30,20,25,28,27,29,31};
     span(a);
 }
