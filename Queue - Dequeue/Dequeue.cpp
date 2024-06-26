@@ -16,6 +16,7 @@ int main()
     auto it = dq.begin();
     it++;
     dq.insert(it, 67);      // to insert in between the dequeue
+    dq.erase(++it);         // to delete in between the dequeue
     for(auto x: dq)
         cout<<x<<" ";
 }
