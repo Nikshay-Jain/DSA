@@ -1,79 +1,66 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
+struct Node {
     int key;
     Node *left;
     Node *right;
-    Node(int k)
-    {
+    Node(int k) {
         key = k;
         left = right = NULL;
     }
 };
 
-void inorder(Node *root)
-{
-    if(root!=NULL)
-    {
+void inorder(Node *root) {
+    if(root!=NULL) {
         inorder(root->left);
-        cout<<root->key<<" ";
+        cout<<(root->key)<<" ";
         inorder(root->right);
     }
 }
 
-void preorder(Node *root)
-{
-    if(root!=NULL)
-    {
+void preorder(Node *root) {
+    if(root!=NULL) {
         cout<<root->key<<" ";
         preorder(root->left);
         preorder(root->right);
     }
 }
 
-void postorder(Node *root)
-{
-    if(root!=NULL)
-    {
+void postorder(Node *root) {
+    if(root!=NULL) {
         postorder(root->left);
         postorder(root->right);
         cout<<root->key<<" ";
     }
 }
 
-int height(Node *root)
-{
+int height(Node *root) {
     if(root==NULL)
         return 0;
     else
         return max(height(root->left), height(root->right))+1;
 }
 
-void nodes_at_k(Node *root, int k)
-{
+void nodes_at_k(Node *root, int k) {
     if(root==NULL)
         return;
 
     else if(k==0)
         cout<<root->key<<" ";
 
-    else
-    {
+    else {
         nodes_at_k(root->left, k-1);
         nodes_at_k(root->right, k-1);
     }
 }
 
-void levelorder(Node *root)
-{
+void levelorder(Node *root) {
     if(root==NULL)
         return;
     queue <Node*> q;
     q.push(root);
-    while(q.empty()==false)
-    {
+    while(q.empty()==false) {
         Node *curr = q.front();
         q.pop();
         cout<<curr->key<<" ";
@@ -84,19 +71,16 @@ void levelorder(Node *root)
     }
 }
 
-void levelorder_linewise(Node *root)
-{
+void levelorder_linewise(Node *root) {
     if(root==NULL)
         return;
     queue <Node*> q;
     q.push(root);
     q.push(NULL);
-    while(q.size()>1)
-    {
+    while(q.size()>1) {
         Node *curr = q.front();
         q.pop();
-        if(curr==NULL)
-        {
+        if(curr==NULL) {
             cout<<"\n";
             q.push(NULL);
             continue;
@@ -110,12 +94,10 @@ void levelorder_linewise(Node *root)
 }
 
 int maxlevel = 0;
-void leftview(Node *root, int level)
-{
+void leftview(Node *root, int level) {
     if(root==NULL)
         return;
-    else if(maxlevel<level)
-    {
+    else if(maxlevel<level) {
         cout<<root->key<<" "<<endl;
         maxlevel = level;
     }
@@ -123,8 +105,7 @@ void leftview(Node *root, int level)
     leftview(root->right,level+1);
 }
 
-int main()
-{
+int main() {
     Node *root = new Node(10);
     root->left = new Node(20);
     root->right = new Node(30);
@@ -133,15 +114,15 @@ int main()
     
     cout<<"Inorder: "<<endl;
     inorder(root);
-    cout<<"\nPreorder: "<<endl;
+    cout<<"\n\nPreorder: "<<endl;
     preorder(root);
-    cout<<"\nPostorder: "<<endl;
+    cout<<"\n\nPostorder: "<<endl;
     postorder(root);
-    cout<<"\nLevel order traversal:"<<endl;
+    cout<<"\n\nLevel order traversal:"<<endl;
     levelorder(root);
-    cout<<"\nLevel order traversal linewise:"<<endl;
+    cout<<"\n\nLevel order traversal linewise:"<<endl;
     levelorder_linewise(root);
-    cout<<"\nLevel view traversal"<<endl;
+    cout<<"\n\nLevel view traversal"<<endl;
     leftview(root,1);
 
     cout<<"\nHeight of tree is:\n "<<height(root)<<endl;
