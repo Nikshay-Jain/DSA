@@ -1,24 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
+struct Node {
     int key;
-    Node *left;
-    Node *right;
-    Node(int k)
-    {
+    Node *left, *right;
+    Node(int k) {
         key = k;
         left = right = NULL;
     }
 };
 
-bool check(Node* root)
-{
+bool check(Node* root) {
     if((root->left == NULL) && (root->right == NULL))
         return true;
-    if(root!=NULL)
-    {
+    if(root!=NULL) {
         if((root->left == NULL && root->key == root->right->key) || (root->right==NULL && root->key != root->left->key))
             return false;
         
@@ -31,8 +26,7 @@ bool check(Node* root)
     return true;
 }
 
-int main()
-{
+int main() {
     Node *root = new Node(20);
     root->left = new Node(8);
     root->right = new Node(12);
