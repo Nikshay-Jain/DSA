@@ -1,13 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
+struct Node {
     int key;
-    Node *left;
-    Node *right;
-    Node(int k)
-    {
+    Node *left, *right;
+    Node(int k) {
         key = k;
         left = right = NULL;
     }
@@ -15,15 +12,14 @@ struct Node
 
 Node *pre = NULL;
 
-Node *tree_dll(Node *root)
-{
+Node *tree_dll(Node *root) {
     if (root == NULL)
         return root;
     Node *head = tree_dll(root->left);
+
     if (pre == NULL)
         head = root;
-    else
-    {
+    else {
         root->left = pre;
         pre->right = root;
     }
@@ -32,8 +28,7 @@ Node *tree_dll(Node *root)
     return head;
 }
 
-int main()
-{
+int main() {
     Node *root = new Node(10);
     root->left = new Node(20);
     root->right = new Node(30);
