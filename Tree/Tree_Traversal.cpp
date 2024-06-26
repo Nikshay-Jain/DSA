@@ -3,8 +3,7 @@ using namespace std;
 
 struct Node {
     int key;
-    Node *left;
-    Node *right;
+    Node *left, *right;
     Node(int k) {
         key = k;
         left = right = NULL;
@@ -60,10 +59,12 @@ void levelorder(Node *root) {
         return;
     queue <Node*> q;
     q.push(root);
+
     while(q.empty()==false) {
         Node *curr = q.front();
         q.pop();
         cout<<curr->key<<" ";
+
         if(curr->left!=NULL)
             q.push(curr->left);
         if(curr->right!=NULL)
@@ -93,18 +94,6 @@ void levelorder_linewise(Node *root) {
     }
 }
 
-int maxlevel = 0;
-void leftview(Node *root, int level) {
-    if(root==NULL)
-        return;
-    else if(maxlevel<level) {
-        cout<<root->key<<" "<<endl;
-        maxlevel = level;
-    }
-    leftview(root->left,level+1);
-    leftview(root->right,level+1);
-}
-
 int main() {
     Node *root = new Node(10);
     root->left = new Node(20);
@@ -122,13 +111,11 @@ int main() {
     levelorder(root);
     cout<<"\n\nLevel order traversal linewise:"<<endl;
     levelorder_linewise(root);
-    cout<<"\n\nLevel view traversal"<<endl;
-    leftview(root,1);
 
-    cout<<"\nHeight of tree is:\n "<<height(root)<<endl;
-    cout<<"\nEnter height till which you want nodes to be printed"<<endl;
+    cout<<"\n\nHeight of tree is:\n"<<height(root)<<endl;
+    cout<<"\nEnter height for which you want nodes to be printed"<<endl;
     int k;
     cin>>k;
-    cout<<"Nodes at length k: "<<endl;
+    cout<<"Nodes at given length: "<<endl;
     nodes_at_k(root,k);
 }
