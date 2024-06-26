@@ -1,13 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
+struct Node {
     int key;
-    Node *left;
-    Node *right;
-    Node(int k)
-    {
+    Node *left, *right;
+    Node(int k) {
         key = k;
         left = right = NULL;
     }
