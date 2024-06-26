@@ -1,20 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
+struct Node {
     int key;
-    Node *left;
-    Node *right;
-    Node(int k)
-    {
+    Node *left, *right;
+    Node(int k) {
         key = k;
         left = right = NULL;
     }
 };
 
-int isBalanced(Node *root)
-{
+int isBalanced(Node *root) {
     if(root==NULL)
         return 0;
     int lh = isBalanced(root->left);
@@ -23,14 +19,11 @@ int isBalanced(Node *root)
     int rh = isBalanced(root->right);
     if(rh == -1)
         return -1;
-    if(abs(lh-rh)>1)
-        return -1;
-    else
-        return 1+max(lh,rh);
+    
+    return ((abs(lh-rh)>1) ? -1 : 1+max(lh,rh));
 }
 
-int main()
-{
+int main() {
     Node *root = new Node(20);
     root->left = new Node(8);
     root->right = new Node(12);
