@@ -10,22 +10,22 @@ struct Node {
     }
 };
 
-void spiral(Node *root)
-{
+void spiral(Node *root) {
     if(root==NULL)
         return;
     queue <Node *> q;
     stack <int> s;
+
     bool reverse = false;
     q.push(root);
     int i;
-    while(q.empty()==false)
-    {
+    while(q.empty()==false) {
         int count = q.size();
-        for(i=0;i<count;i++)
-        {
+
+        for(i=0;i<count;i++) {
             Node *curr = q.front();
             q.pop();
+
             if(reverse)
                 s.push(curr->key);
             else
@@ -36,10 +36,9 @@ void spiral(Node *root)
             if(curr->right != NULL)
                 q.push(curr->right);
         }
-        if(reverse)
-        {
-            while(s.empty()==false)
-            {
+
+        if(reverse) {
+            while(s.empty()==false) {
                 cout<<s.top()<<" ";
                 s.pop();
             }
@@ -49,8 +48,7 @@ void spiral(Node *root)
     }
 }
 
-int main()
-{
+int main() {
     Node *root = new Node(10);
     root->left = new Node(20);
     root->right = new Node(30);
