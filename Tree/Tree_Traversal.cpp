@@ -78,7 +78,7 @@ void levelorder_linewise(Node *root) {
     queue <Node*> q;
     q.push(root);
     q.push(NULL);
-    while(q.size()>1) {
+    while(q.empty()==false) {
         Node *curr = q.front();
         q.pop();
         if(curr==NULL) {
