@@ -1,2 +1,2 @@
 # DSA
-Contains Solutions of DSA Problems!
+Solutions of DSA Problems!
