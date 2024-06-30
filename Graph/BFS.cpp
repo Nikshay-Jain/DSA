@@ -23,13 +23,16 @@ void BFS(vector<int> adj[], int s, vector<bool> &visited) {
     }
 }
 
-void BFS_dis(vector<int> adj[], int v) {
-    vector<bool> visited(v+1,false);
-    int i;
+int BFS_dis(vector<int> adj[], int v) {
+    vector<bool> visited(v,false);
+    int i,count = 0;
     for(i=0;i<v;i++) {
-        if(visited[i]==false)
+        if(visited[i]==false) {
             BFS(adj,i,visited);
+            count++;
+        }
     }
+    return count;
 }
 
 int main() {
@@ -44,5 +47,6 @@ int main() {
     add_edge(adj,5,6);
     add_edge(adj,6,4);
 
-    BFS_dis(adj,N);
+    int c = BFS_dis(adj,N);
+    cout<<"\nNo of connected islands: "<<c;
 }
