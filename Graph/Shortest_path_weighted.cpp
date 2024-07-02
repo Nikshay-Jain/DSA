@@ -11,16 +11,17 @@ int V = 6;              // no of vertices
 void kahn_topological_sort(vector<int> adj[], vector<int> weight[], int s) {
         vector<int> in_degree(V, 0);
         queue<int> q;
+        int i;
 
         // Calculate in-degree for each vertex
-        for (int v=0;v<V;v++) {
-            for (int w : adj[v]) {
+        for (i=0;i<V;i++) {
+            for (int w : adj[i]) {
                 in_degree[w]++;
             }
         }
 
         // Enqueue vertices with in-degree 0
-        for (int i=0;i<V;i++) {
+        for (i=0;i<V;i++) {
             if (in_degree[i] == 0) {
                 q.push(i);
             }
@@ -56,13 +57,11 @@ void kahn_topological_sort(vector<int> adj[], vector<int> weight[], int s) {
 
             // Print the shortest distances
             cout << "Shortest distances from source (vertex 0):\n";
-            for (int i = 0; i < V; i++) {
-                cout << "Vertex " << i << ": " << dist[i] << "\n";
-            }
+            for (i=0;i<V;i++)
+                cout<<"Vertex "<<i<<": "<<dist[i]<<"\n";
         }
-        else {
-            cout << "Graph has at least one cycle\n";
-        }
+        else
+            cout<<"Graph has at least one cycle\n";
     }
 
 int main() {
