@@ -7,19 +7,20 @@ void add_edge(vector<int> adj[], vector<int> weight[], int wt, int u, int v) {
 }
 
 int V = 6;              // no of vertices
+
 void kahn_topological_sort(vector<int> adj[], vector<int> weight[], int s) {
         vector<int> in_degree(V, 0);
         queue<int> q;
 
         // Calculate in-degree for each vertex
-        for (int v=0;v<V;++v) {
+        for (int v=0;v<V;v++) {
             for (int w : adj[v]) {
                 in_degree[w]++;
             }
         }
 
         // Enqueue vertices with in-degree 0
-        for (int i=0;i<V;++i) {
+        for (int i=0;i<V;i++) {
             if (in_degree[i] == 0) {
                 q.push(i);
             }
@@ -46,7 +47,7 @@ void kahn_topological_sort(vector<int> adj[], vector<int> weight[], int s) {
             dist[topological_order[0]] = 0;
 
             for (int u : topological_order) {
-                for (int i=0;i<adj[u].size();++i) {
+                for (int i=0;i<adj[u].size();i++) {
                     int v = adj[u][i];
                     int wt = weight[u][i];
                     dist[v] = min(dist[v], dist[u]+wt);
@@ -55,7 +56,7 @@ void kahn_topological_sort(vector<int> adj[], vector<int> weight[], int s) {
 
             // Print the shortest distances
             cout << "Shortest distances from source (vertex 0):\n";
-            for (int i = 0; i < V; ++i) {
+            for (int i = 0; i < V; i++) {
                 cout << "Vertex " << i << ": " << dist[i] << "\n";
             }
         }
